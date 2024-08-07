@@ -2,6 +2,10 @@
 resource "aws_docdb_subnet_group" "default" {
   name       = "aws_documentdb_subnets_group"
   subnet_ids = ["subnet-0c1334ab387f9e579","subnet-01111f51e20b5d265"]
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 # Criacao do Security Group com suas regras!
